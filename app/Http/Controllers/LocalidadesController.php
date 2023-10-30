@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NuevaPublicacion;
+use App\Models\Localidades;
 use Illuminate\Http\Request;
-use App\Models\tipo_publicacion;
-use App\Models\TipoMascota;
-use App\Models\Provincias;
 
-class NuevaPublicacionController extends Controller
+class LocalidadesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +14,7 @@ class NuevaPublicacionController extends Controller
      */
     public function index()
     {
-        
-
-
+        //
     }
 
     /**
@@ -29,11 +24,7 @@ class NuevaPublicacionController extends Controller
      */
     public function create()
     {
-     
-        return view('NuevaPublicacion',
-            [
-                           
-            ]);
+        //
     }
 
     /**
@@ -50,10 +41,10 @@ class NuevaPublicacionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\NuevaPublicacion  $nuevaPublicacion
+     * @param  \App\Models\Localidades  $localidades
      * @return \Illuminate\Http\Response
      */
-    public function show(NuevaPublicacion $nuevaPublicacion)
+    public function show(Localidades $localidades)
     {
         //
     }
@@ -61,10 +52,10 @@ class NuevaPublicacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\NuevaPublicacion  $nuevaPublicacion
+     * @param  \App\Models\Localidades  $localidades
      * @return \Illuminate\Http\Response
      */
-    public function edit(NuevaPublicacion $nuevaPublicacion)
+    public function edit(Localidades $localidades)
     {
         //
     }
@@ -73,10 +64,10 @@ class NuevaPublicacionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\NuevaPublicacion  $nuevaPublicacion
+     * @param  \App\Models\Localidades  $localidades
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NuevaPublicacion $nuevaPublicacion)
+    public function update(Request $request, Localidades $localidades)
     {
         //
     }
@@ -84,10 +75,10 @@ class NuevaPublicacionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\NuevaPublicacion  $nuevaPublicacion
+     * @param  \App\Models\Localidades  $localidades
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NuevaPublicacion $nuevaPublicacion)
+    public function destroy(Localidades $localidades)
     {
         //
     }
