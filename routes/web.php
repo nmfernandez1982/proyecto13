@@ -24,12 +24,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-/* 
-Route::get('/nuevaPublicacion', function () {
-    return view('nuevaPublicacion');
-})->middleware(['auth', 'verified'])->name('nuevaPublicacion');
-*/
+#######  CRUD de publicaciones
+Route::get('/misPublicaciones', [ NuevaPublicacionController::class, 'index' ])->middleware(['auth', 'verified'])->name('misPublicaciones');
 Route::get('/nuevaPublicacion', [ NuevaPublicacionController::class, 'create' ])->middleware(['auth', 'verified'])->name('nuevaPublicacion');
+Route::post('/agregarPublicacion', [ NuevaPublicacionController::class, 'store' ]);
+Route::get('/eliminarPublicacion/{id}', [ NuevaPublicacionController::class, 'confirmarBaja' ]);
+Route::delete('/eliminarPublicacion', [ NuevaPublicacionController::class, 'destroy']);
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

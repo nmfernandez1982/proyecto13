@@ -2,7 +2,7 @@
 @livewireScripts
 @livewireStyles
 
-<form action="" method="" enctype="multipart/form-data" class="" >
+<form action="/agregarPublicacion" method="post" enctype="multipart/form-data" class="" >
     {{@csrf_field()}}
         {{-- Select tipo publicacion --}}
         <label  for="TipoPublicacion"  class="block text-lg font-semibold text-green-600 uppercase ">Tipo Publicacion
@@ -44,7 +44,7 @@
 
 {{-- Input nombre de mascota --}}
 <label for="nombre" class="block text-lg font-semibold text-green-600 uppercase ">Nombre 
-    <input required type="text" class="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+    <input required type="text" id="nombre" name="nombre" class="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
 </label>
 {{-- Input imagen de mascota --}}
 <label data-browse="Buscar en disco" for="inputMascotaImagen" class="block text-lg font-semibold text-green-600 uppercase ">Imagen 
@@ -52,7 +52,7 @@
 </label>
 {{-- Input comentario de mascota --}}
 <label for="" class="block text-lg font-semibold text-green-600 uppercase ">Comentario
-<textarea name="" id="" cols="20" rows="10" class="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+<textarea name="comentario" id="comentario" cols="20" rows="10" class="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
 </textarea>
 </label>
 <br>
