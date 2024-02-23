@@ -2,18 +2,30 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
+        <!-- Nombre -->
         <div>
             <x-input-label for="name" :value="__('Nombre')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
-        <!-- Surname -->
+        <!-- Apellido -->
         <div>
-            <x-input-label for="surname" :value="__('Apellido')" />
-            <x-text-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="surname" />
-            <x-input-error :messages="$errors->get('surname')" class="mt-2" />
+            <x-input-label for="apellido" :value="__('apellido')" />
+            <x-text-input id="apellido" class="block mt-1 w-full" type="text" name="apellido" :value="old('apellido')" required autofocus autocomplete="apellido" />
+            <x-input-error :messages="$errors->get('apellido')" class="mt-2" />
         </div>
+          <!-- Direccion -->
+          <div>
+            <x-input-label for="direccion" :value="__('direccion')" />
+            <x-text-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')" required autofocus autocomplete="direccion" />
+            <x-input-error :messages="$errors->get('direccion')" class="mt-2" />
+        </div>
+         <!-- Telefono -->
+         <div>
+            <x-input-label for="telefono" :value="__('telefono')" />
+            <x-text-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')" required autofocus autocomplete="telefono" />
+            <x-input-error :messages="$errors->get('telefono')" class="mt-2" />
+        </div>       
 
         <!-- Email Address -->
         <div class="mt-4">
