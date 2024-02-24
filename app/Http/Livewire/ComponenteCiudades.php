@@ -18,8 +18,9 @@ class ComponenteCiudades extends Component
 
     public function render()
     {
-        $tipoP=tipo_publicacion::all()->where('activa', true);
-        $tipoM=TipoMascota::all()->where('activa', true);
+        //$tipoP=tipo_publicacion::all()->where('activa', true);
+        $tipoP=tipo_publicacion::all();
+        $tipoM=TipoMascota::all();
 
         return view('livewire.componente-ciudades',
         [
@@ -31,6 +32,6 @@ class ComponenteCiudades extends Component
 
     public function updatedSelectedProvincia($provincia_id)
     {
-        $this->localidades=Localidades::where('provincia_id',$provincia_id)->get();
+        $this->localidades=Localidades::where('id_provincia',$provincia_id)->get();
     }
 }

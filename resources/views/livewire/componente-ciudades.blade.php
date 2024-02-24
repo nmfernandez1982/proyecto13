@@ -8,7 +8,7 @@
         <label  for="TipoPublicacion"  class="block text-lg font-semibold text-green-600 uppercase ">Tipo Publicacion
                 <select required  name="TipoPublicacion" id="TipoPublicacion" class="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" >
                     @foreach ($tipoP as $tipo)                               
-                    <option {{ ( old('TipoPublicacion')==$tipo->id )?'selected':'' }} value="{{ $tipo->id }}">{{ $tipo->tipo_publicacion }}</option>
+                    <option {{ ( old('TipoPublicacion')==$tipo->id )?'selected':'' }} value="{{ $tipo->id }}">{{ $tipo->descripcion }}</option>
                     @endforeach                         
                 </select>  
         </label>
@@ -17,7 +17,7 @@
         <label for="TipoMascota" class="block text-lg font-semibold text-green-600 uppercase ">Categoria
                 <select required name="TipoMascota" id="TipoMascota" class="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" >
                     @foreach ($tipoM as $tipo)   
-                    <option {{ ( old('TipoMascota')==$tipo->id )?'selected':'' }} value="{{ $tipo->id }}">{{ $tipo->tipo_mascota }}</option>
+                    <option {{ ( old('TipoMascota')==$tipo->id )?'selected':'' }} value="{{ $tipo->id }}">{{ $tipo->descripcion }}</option>
                     @endforeach 
                 </select>                
         </label>
@@ -36,7 +36,7 @@
     <label for="localidades" class="block text-lg font-semibold text-green-600 uppercase ">Ciudad
             <select required wire:model="selectedLocalidad" name="localidad" id="localidad" class="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" >
                 @foreach ($localidades as $localidad)   
-                    <option {{ ( old('localidades')==$localidad->id )?'selected':'' }} value="{{ $localidad->id }}">{{ $localidad->nombre }}</option>
+                    <option {{ ( old('localidades')==$localidad->id )?'selected':'' }} value="{{ $localidad->id }}">{{ $localidad->descripcion }}</option>
                 @endforeach              
             </select>                
     </label>

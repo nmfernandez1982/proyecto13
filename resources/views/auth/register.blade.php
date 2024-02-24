@@ -25,7 +25,9 @@
             <x-input-label for="telefono" :value="__('telefono')" />
             <x-text-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')" required autofocus autocomplete="telefono" />
             <x-input-error :messages="$errors->get('telefono')" class="mt-2" />
-        </div>       
+        </div>    
+        
+       
 
         <!-- Email Address -->
         <div class="mt-4">

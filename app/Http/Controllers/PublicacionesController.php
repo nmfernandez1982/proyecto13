@@ -1,36 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
-use App\Models\NuevaPublicacion;
+use App\Models\Publicaciones;
 use Illuminate\Http\Request;
-
 use App\Models\tipo_publicacion;
 use App\Models\TipoMascota;
 use App\Models\Provincias;
-
 use Illuminate\Support\Facades\Auth;
 
-
-class NuevaPublicacionController extends Controller
+class PublicacionesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        
         if (Auth::check()) 
         {
             $userId = Auth::id();
-            $publicaciones = NuevaPublicacion::where('id_user',  $userId)->with(['getTipoPublicacion','getTipoMascota','getProvincia','getLocalidad'])->paginate(6);
+            $publicaciones = Publicaciones::where('id_user',  $userId)->with(['getTipoPublicacion','getTipoMascota','getProvincia','getLocalidad'])->paginate(6);
             return view('misPublicaciones',['publicaciones' => $publicaciones ]);
         }  
-      
-       
     }
 
     /**
@@ -40,21 +32,13 @@ class NuevaPublicacionController extends Controller
      */
     public function create()
     {
-     
-        return view('NuevaPublicacion',
-            [
-                           
-            ]);
+        return view('Publicacion',
+        [
+                       
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-     private function subirImagen(Request $request)
+    private function subirImagen(Request $request)
      {
          //si no enviaron imagen en store()
          $publicacionImagen = 'perritoMalvado.jpg';
@@ -79,9 +63,16 @@ class NuevaPublicacionController extends Controller
 
 
 
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-       //subo la imagen
+         //subo la imagen
        $publicacionImagen = $this->subirImagen($request);
        //creo un nuevo objeto
        $publicacion=new NuevaPublicacion;
@@ -110,10 +101,10 @@ class NuevaPublicacionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\NuevaPublicacion  $nuevaPublicacion
+     * @param  \App\Models\Publicaciones  $publicaciones
      * @return \Illuminate\Http\Response
      */
-    public function show(NuevaPublicacion $nuevaPublicacion)
+    public function show(Publicaciones $publicaciones)
     {
         //
     }
@@ -121,10 +112,10 @@ class NuevaPublicacionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\NuevaPublicacion  $nuevaPublicacion
+     * @param  \App\Models\Publicaciones  $publicaciones
      * @return \Illuminate\Http\Response
      */
-    public function edit(NuevaPublicacion $nuevaPublicacion)
+    public function edit(Publicaciones $publicaciones)
     {
         //
     }
@@ -133,10 +124,10 @@ class NuevaPublicacionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\NuevaPublicacion  $nuevaPublicacion
+     * @param  \App\Models\Publicaciones  $publicaciones
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NuevaPublicacion $nuevaPublicacion)
+    public function update(Request $request, Publicaciones $publicaciones)
     {
         //
     }
@@ -144,24 +135,20 @@ class NuevaPublicacionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\NuevaPublicacion  $nuevaPublicacion
+     * @param  \App\Models\Publicaciones  $publicaciones
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Publicaciones $publicaciones)
     {
         NuevaPublicacion::destroy( $request->id);
         return redirect('misPublicaciones')
         ->with(['mensaje'=>'Producto: '.$request->nombre.' Se elimino la publicacion' ]);
         ;
     }
+
     public function confirmarBaja( $id )
     {
              $publicacion = NuevaPublicacion::all()->find($id);
             return view('eliminarPublicacion',['publicaciones' => $publicacion ])  ;          
     }
-
-
-   
-
-
 }

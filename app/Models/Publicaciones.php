@@ -5,21 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NuevaPublicacion extends Model
+class Publicaciones extends Model
 {
     use HasFactory;
     protected $table= 'publicaciones';
 
 
-    
-    ##metodos de relacion
+ ##metodos de relacion
     public function getTipoPublicacion()
     {
-        return $this->belongsTo(
-            tipo_publicacion::class,
-            'id_tipo_publicacion',
-            'id'
-            );
+     return $this->belongsTo(
+         tipo_publicacion::class,
+         'id_tipo_publicacion',
+         'id'
+         );
     }
 
     public function getTipoMascota()
@@ -49,6 +48,5 @@ class NuevaPublicacion extends Model
             );
     }
 
-    
 
 }
